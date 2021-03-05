@@ -1,20 +1,20 @@
 package app.gobakso.com
 
 import android.content.Context
-import app.gobakso.com.ui.component.*
-import app.gobakso.com.ui.component.impl.INavigation
-import app.gobakso.com.ui.component.manager.AnimationLogicManager
-import app.gobakso.com.ui.component.manager.EventManager
-import app.gobakso.com.ui.component.manager.NavigationManager
-import app.gobakso.com.ui.component.manager.PaymentLogicManager
-import app.gobakso.com.ui.component.module.NavModule
+import app.gobakso.com.ui.di.*
+import app.gobakso.com.ui.di.impl.INavigation
+import app.gobakso.com.ui.di.manager.AnimationLogicManager
+import app.gobakso.com.ui.di.manager.EventManager
+import app.gobakso.com.ui.di.manager.NavigationManager
+import app.gobakso.com.ui.di.manager.PaymentLogicManager
+import app.gobakso.com.ui.di.module.NavModule
 import app.beelabs.com.codebase.base.BaseApp
 import app.beelabs.com.codebase.di.component.AppComponent
 import app.beelabs.com.codebase.di.component.DaggerAppComponent
-import app.gobakso.com.ui.component.IEvent
-import app.gobakso.com.ui.component.ILogic
-import app.gobakso.com.ui.component.SupportSubComponent
-import app.gobakso.com.ui.component.UIComponent
+import app.gobakso.com.ui.di.IEvent
+import app.gobakso.com.ui.di.ILogic
+import app.gobakso.com.ui.di.SupportSubComponent
+import app.gobakso.com.ui.di.UIComponent
 
 class App : BaseApp() {
 

@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Coconut Template</string>
+    <string name="app_name">Gobakso</string>
+    <string name="title_driver">Driver Module</string>
 </resources>

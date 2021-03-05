@@ -8,4 +8,22 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <!--  Font  -->
+    <style name="FontBeautifulPeople" parent="TextAppearance.AppCompat">
+        <item name="fontPath">font/BeautifulPeople_Regular.ttf</item>
+    </style>
+    <style name="FontSFProDisplayBlack" parent="TextAppearance.AppCompat">
+        <item name="fontPath">font/SF-Pro-Display-Black.otf</item>
+    </style>
+
+    <style name="FontSFProDisplayRegular" parent="TextAppearance.AppCompat">
+        <item name="fontPath">font/SFProDisplay-Regular.ttf</item>
+    </style>
+
+    <style name="FontSFProTextRegular" parent="TextAppearance.AppCompat">
+        <item name="fontPath">font/SFProText-Regular.ttf</item>
+    </style>
+    <!-- endFont -->
+
 </resources>
