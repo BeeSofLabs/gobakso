@@ -1,26 +1,30 @@
 package app.gobakso.com.ui.activity
 
 import android.os.Bundle
-import androidx.viewbinding.ViewBinding
+import android.widget.Toast
 import app.beelabs.com.codebase.base.BaseActivity
-import app.gobakso.com.R
+import app.gobakso.com.App
 import app.gobakso.com.databinding.ActivityLoginBinding
+import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : BaseActivity() {
 
+    private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
-        val binding = ActivityLoginBinding.inflate(layoutInflater)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        initUI(binding)
+        initUI()
     }
 
-    private fun initUI(binding: ViewBinding){
-        with(binding){
-
+    private fun initUI() {
+        with(binding) {
+            signupButton.setOnClickListener {
+                App.getNavigationComponent().authNavigation(intent)
+                    .navigateToSignupInput(this@LoginActivity)
+            }
         }
-
     }
 }

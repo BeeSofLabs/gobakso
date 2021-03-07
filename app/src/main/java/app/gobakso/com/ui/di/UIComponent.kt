@@ -1,6 +1,7 @@
 package app.gobakso.com.ui.di
 
 import app.beelabs.com.codebase.di.component.AppComponent
+import app.gobakso.com.ui.di.impl.IAuthNavigation
 import app.gobakso.com.ui.di.impl.IHomeNavigation
 import app.gobakso.com.ui.di.impl.INavigation
 import app.gobakso.com.ui.di.module.NavModule
@@ -12,6 +13,7 @@ import dagger.Component
 interface UIComponent {
     fun inject(iNavigation: INavigation): INavigation
     fun inject(iHomeNavigation: IHomeNavigation): IHomeNavigation
+    fun inject(iAuthNavigation: IAuthNavigation): IAuthNavigation
 
     fun newSupportSubcomponent() : SupportSubComponent
 }

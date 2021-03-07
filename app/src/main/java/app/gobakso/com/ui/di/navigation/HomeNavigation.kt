@@ -1,4 +1,4 @@
-package app.gobakso.com.ui.di.manager
+package app.gobakso.com.ui.di.navigation
 
 import android.content.Context
 import android.content.Intent
