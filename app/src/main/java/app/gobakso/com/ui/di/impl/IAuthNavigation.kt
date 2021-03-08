@@ -5,4 +5,6 @@ import android.content.Context
 interface IAuthNavigation : IBaseNavigation {
 
     fun navigateToSignupInput(context: Context)
+
+    fun navigateToCommonPin(context: Context)
 }

@@ -2,6 +2,7 @@ package app.gobakso.com.ui.activity
 
 import android.os.Bundle
 import app.beelabs.com.codebase.base.BaseActivity
+import app.gobakso.com.App
 import app.gobakso.com.R
 import app.gobakso.com.databinding.ActivityRegisterInputBinding
 
@@ -19,6 +20,10 @@ class RegisterInputActivity : BaseActivity() {
 
     private fun initUI() {
         with(binding) {
+            nextButton.setOnClickListener {
+                App.getNavigationComponent().authNavigation(intent)
+                    .navigateToCommonPin(this@RegisterInputActivity)
+            }
         }
     }
 }

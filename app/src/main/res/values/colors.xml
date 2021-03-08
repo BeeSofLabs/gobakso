@@ -3,4 +3,8 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <!--  Color Base  -->
+    <color name="color_blue_0067B3">#0067B3</color>
+    <color name="color_orange_facc64">#facc64</color>
 </resources>
