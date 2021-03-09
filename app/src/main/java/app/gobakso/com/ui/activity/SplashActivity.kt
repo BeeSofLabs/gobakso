@@ -8,16 +8,18 @@ import app.gobakso.com.R
 import app.gobakso.com.model.data.api.response.SourceResponse
 import app.gobakso.com.presenter.AuthPresenter
 import app.gobakso.com.ui.ISplashView
+import app.gobakso.com.ui.util.AppUtil
 
 import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : BaseActivity(), ISplashView {
 
-    val authPresenter = AuthPresenter(this)
+    private val authPresenter = AuthPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+        AppUtil.setupLightStatusBarMode(window)
 
         val splashIntent = if (authPresenter.getAuthLoginStatus(this))
             Intent(SplashscreenActivity@ this, MainActivity::class.java)
