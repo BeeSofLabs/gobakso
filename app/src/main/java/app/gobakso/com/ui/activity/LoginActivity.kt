@@ -1,7 +1,6 @@
 package app.gobakso.com.ui.activity
 
 import android.os.Bundle
-import android.widget.Toast
 import app.beelabs.com.codebase.base.BaseActivity
 import app.gobakso.com.App
 import app.gobakso.com.databinding.ActivityLoginBinding
@@ -21,6 +20,10 @@ class LoginActivity : BaseActivity() {
 
     private fun initUI() {
         with(binding) {
+            signinButton.setOnClickListener {
+                App.getNavigationComponent().homeNavigation(intent)
+                    .navigateToHome(this@LoginActivity)
+            }
             signupButton.setOnClickListener {
                 App.getNavigationComponent().authNavigation(intent)
                     .navigateToSignupInput(this@LoginActivity)

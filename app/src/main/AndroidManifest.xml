@@ -20,7 +20,8 @@
         <activity
                 android:name=".ui.activity.MainActivity"
                 android:screenOrientation="fullSensor"
-                android:theme="@style/AppTheme" />
+                android:theme="@style/NoActionBarTheme"
+                android:clearTaskOnLaunch="true"/>
 
         <activity
                 android:name=".ui.activity.LoginActivity"
