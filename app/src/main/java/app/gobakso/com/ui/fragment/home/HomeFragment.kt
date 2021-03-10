@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import app.beelabs.com.codebase.base.BaseFragment
 import app.gobakso.com.ui.fragment.banner.BannerFirstFragment
-import app.beelabs.com.mopay.ui.fragment.onboard.BannerThirdFragment
+import app.gobakso.com.ui.fragment.banner.BannerThirdFragment
 import app.gobakso.com.databinding.FragmentHomeBinding
 import app.gobakso.com.ui.adapter.BannerViewPagerAdapter
 import app.gobakso.com.ui.fragment.banner.BannerSecondFragment
