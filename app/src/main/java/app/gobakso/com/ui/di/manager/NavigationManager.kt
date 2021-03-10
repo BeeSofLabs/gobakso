@@ -9,7 +9,7 @@ import app.gobakso.com.ui.di.navigation.AuthNavigation
 import app.gobakso.com.ui.di.navigation.HomeNavigation
 
 class NavigationManager : INavigation {
-    override fun homeNavigation(intent: Intent): IHomeNavigation {
+    override fun homeNavigation(): IHomeNavigation {
         return App.uiComponent?.inject(HomeNavigation())!!
     }
 

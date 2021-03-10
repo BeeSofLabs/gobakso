@@ -5,8 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.viewpager.widget.ViewPager
 import app.beelabs.com.codebase.base.BaseFragment
+import app.gobakso.com.App
 import app.gobakso.com.ui.fragment.banner.BannerFirstFragment
 import app.gobakso.com.ui.fragment.banner.BannerThirdFragment
 import app.gobakso.com.databinding.FragmentHomeBinding
@@ -15,6 +18,7 @@ import app.gobakso.com.ui.fragment.banner.BannerSecondFragment
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : BaseFragment() {
+    private lateinit var navController: NavController
     private var currentPage = 0
     private lateinit var binding: FragmentHomeBinding
     private val fragments = ArrayList<Fragment>()
@@ -30,6 +34,7 @@ class HomeFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        navController = Navigation.findNavController(view)
         setupViewPager().addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
             }
@@ -45,6 +50,16 @@ class HomeFragment : BaseFragment() {
                 currentPage = position
             }
         })
+
+        initUI()
+    }
+
+    private fun initUI() {
+        with(binding){
+            profileButton.setOnClickListener {
+                App.getNavigationComponent().homeNavigation().navigateToProfile(navController)
+            }
+        }
     }
 
     private fun setupViewPager() : ViewPager {

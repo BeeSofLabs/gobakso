@@ -21,7 +21,7 @@ class LoginActivity : BaseActivity() {
     private fun initUI() {
         with(binding) {
             signinButton.setOnClickListener {
-                App.getNavigationComponent().homeNavigation(intent)
+                App.getNavigationComponent().homeNavigation()
                     .navigateToHome(this@LoginActivity)
             }
             signupButton.setOnClickListener {
