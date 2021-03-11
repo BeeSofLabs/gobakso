@@ -1,5 +1,6 @@
 package app.gobakso.com.ui.di.navigation
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import androidx.navigation.NavController
@@ -11,6 +12,7 @@ class HomeNavigation : IHomeNavigation {
 
     override fun navigateToHome(context: Context) {
         context.startActivity(Intent(context, MainActivity::class.java))
+        (context as Activity).finish()
     }
 
     override fun navigateToProfile(navController: NavController) {
