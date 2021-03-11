@@ -9,22 +9,20 @@ import app.gobakso.com.databinding.FragmentCommonPinEntryBinding
 import app.gobakso.com.databinding.FragmentProfileBinding
 
 class ProfileFragment : BaseFragment() {
-    private var _binding: FragmentProfileBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentProfileBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentProfileBinding.inflate(inflater, container, false)
-        binding.profileBackButton.buttonBack.setOnClickListener { activity?.onBackPressed() }
+        binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         with(binding){
-//            profileBackButton.buttonBack.setOnClickListener { activity?.onBackPressed() }
+            buttonBack.setOnClickListener { activity?.onBackPressed() }
         }
     }
 }
