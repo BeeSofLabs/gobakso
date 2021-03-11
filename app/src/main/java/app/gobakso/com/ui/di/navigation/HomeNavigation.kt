@@ -18,4 +18,8 @@ class HomeNavigation : IHomeNavigation {
     override fun navigateToProfile(navController: NavController) {
         navController.navigate(R.id.action_homeFragment_to_profileFragment)
     }
+
+    override fun navigateToOrderMap(navController: NavController) {
+        navController.navigate(R.id.action_homeFragment_to_orderMapFragment)
+    }
 }

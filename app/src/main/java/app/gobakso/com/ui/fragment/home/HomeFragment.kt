@@ -7,14 +7,17 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager.widget.ViewPager
 import app.beelabs.com.codebase.base.BaseFragment
 import app.gobakso.com.App
-import app.gobakso.com.ui.fragment.banner.BannerFirstFragment
-import app.gobakso.com.ui.fragment.banner.BannerThirdFragment
 import app.gobakso.com.databinding.FragmentHomeBinding
+import app.gobakso.com.model.data.entity.Product
 import app.gobakso.com.ui.adapter.BannerViewPagerAdapter
+import app.gobakso.com.ui.adapter.ProductListAdapter
+import app.gobakso.com.ui.fragment.banner.BannerFirstFragment
 import app.gobakso.com.ui.fragment.banner.BannerSecondFragment
+import app.gobakso.com.ui.fragment.banner.BannerThirdFragment
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : BaseFragment() {
@@ -55,14 +58,29 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun initUI() {
-        with(binding){
+        setupProductList()
+        with(binding) {
             profileButton.setOnClickListener {
                 App.getNavigationComponent().homeNavigation().navigateToProfile(navController)
+            }
+            orderButton.setOnClickListener {
+                App.getNavigationComponent().homeNavigation().navigateToOrderMap(navController)
             }
         }
     }
 
-    private fun setupViewPager() : ViewPager {
+    private fun setupProductList() {
+        with(binding) {
+            productList.setItemViewCacheSize(10)
+            productList.hasFixedSize()
+            productList.apply {
+                layoutManager = LinearLayoutManager(context)
+                adapter = ProductListAdapter(ArrayList<Product>())
+            }
+        }
+    }
+
+    private fun setupViewPager(): ViewPager {
         val adapter = BannerViewPagerAdapter(fragmentManager)
 
         fragments.add(BannerFirstFragment())
@@ -73,5 +91,10 @@ class HomeFragment : BaseFragment() {
         viewPager.adapter = adapter
 
         return viewPager
+    }
+
+    override fun onResume() {
+        super.onResume()
+        initUI()
     }
 }

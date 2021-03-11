@@ -63,7 +63,7 @@ class App : BaseApp() {
         super.onCreate()
 
         setupBuilder(DaggerAppComponent.builder(), this)
-        setupDefaultFont("font/Avenir-Medium.ttf")
+        setupDefaultFont("font/SFProText-Regular.ttf")
 
         uiComponent = DaggerUIComponent.builder().appComponent(getAppComponent())
             .navModule(NavModule()).build()

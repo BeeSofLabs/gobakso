@@ -1,7 +1,7 @@
 package app.gobakso.com.model.data.api.response
 
 import app.beelabs.com.codebase.base.response.BaseResponse
-import app.gobakso.com.model.data.pojo.Source
+import app.gobakso.com.model.data.entity.Source
 
 class SourceResponse : BaseResponse() {
     private var sources: List<Source?>? = null

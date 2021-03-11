@@ -23,9 +23,9 @@
 
         <ImageView
                 android:id="@+id/profile_button"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:paddingTop="10dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:padding="10dp"
                 android:src="@drawable/profile"
                 app:layout_constraintRight_toRightOf="parent"
                 attrs:ignore="MissingConstraints" />
@@ -61,15 +61,38 @@
                     android:background="@color/color_green"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:paddingVertical="10dp"
-                    android:paddingStart="20dp">
+                    android:paddingVertical="10dp">
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:drawableTop="@drawable/ic_notif"
                         android:drawablePadding="-5dp"
-                        android:text="Notif"
+                        android:text="Product"
+                        android:textAlignment="center"
+                        android:textColor="@color/color_white" />
+
+                <TextView
+                        android:id="@+id/order_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:drawableTop="@drawable/ic_notif"
+                        android:drawablePadding="-5dp"
+                        android:text="Pesan"
+                        android:textAlignment="center"
+                        android:textColor="@color/color_white" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:drawableTop="@drawable/ic_notif"
+                        android:drawablePadding="-5dp"
+                        android:text="Reward"
                         android:textAlignment="center"
                         android:textColor="@color/color_white" />
 
@@ -119,6 +142,10 @@
                     attrs:piv_radius="2dp" />
 
 
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/product_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
         </LinearLayout>
     </ScrollView>
 

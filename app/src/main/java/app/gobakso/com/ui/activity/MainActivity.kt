@@ -2,12 +2,11 @@ package app.gobakso.com.ui.activity
 
 import android.os.Bundle
 import app.beelabs.com.codebase.base.BaseActivity
-import app.gobakso.com.R
+import app.gobakso.com.App
 import app.gobakso.com.databinding.ActivityMainBinding
-import com.google.android.play.core.splitinstall.SplitInstallManager
+import app.gobakso.com.ui.fragment.home.HomeFragment
 
 class MainActivity : BaseActivity() {
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,7 +15,15 @@ class MainActivity : BaseActivity() {
         setContentView(binding.root)
     }
 
-//    private fun doGeneralAction(): RxTimer? {
+    override fun onBackPressed() {
+        var fragments = supportFragmentManager.fragments
+        for (f in fragments)
+            if (f != null && f.childFragmentManager.fragments[0] is HomeFragment) finish()
+            else
+                App.getNavigationComponent().homeNavigation().navigateToHome(this)
+    }
+
+    //    private fun doGeneralAction(): RxTimer? {
 //        return object : RxTimer() {
 //            override fun onCallback(along: Long?) {
 //                val supportAction = App.getAction()

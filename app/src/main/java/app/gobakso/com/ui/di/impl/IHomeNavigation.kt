@@ -8,4 +8,6 @@ interface IHomeNavigation : IBaseNavigation {
     fun navigateToHome(context: Context)
 
     fun navigateToProfile(navController: NavController)
+
+    fun navigateToOrderMap(navController: NavController)
 }

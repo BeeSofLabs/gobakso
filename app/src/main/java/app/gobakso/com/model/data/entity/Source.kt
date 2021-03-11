@@ -1,4 +1,4 @@
-package app.gobakso.com.model.data.pojo
+package app.gobakso.com.model.data.entity
 
 import java.io.Serializable
 
