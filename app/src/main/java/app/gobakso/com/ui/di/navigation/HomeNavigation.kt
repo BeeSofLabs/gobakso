@@ -6,6 +6,7 @@ import android.content.Intent
 import androidx.navigation.NavController
 import app.gobakso.com.R
 import app.gobakso.com.ui.activity.MainActivity
+import app.gobakso.com.ui.activity.MapOrderActivity
 import app.gobakso.com.ui.di.impl.IHomeNavigation
 
 class HomeNavigation : IHomeNavigation {
@@ -19,7 +20,12 @@ class HomeNavigation : IHomeNavigation {
         navController.navigate(R.id.action_homeFragment_to_profileFragment)
     }
 
-    override fun navigateToOrderMap(navController: NavController) {
+    override fun navigateToOrder(navController: NavController) {
         navController.navigate(R.id.action_homeFragment_to_orderMapFragment)
+    }
+
+    override fun navigateToMapOrder(context: Context) {
+        context.startActivity(Intent(context, MapOrderActivity::class.java))
+        (context as Activity).finish()
     }
 }

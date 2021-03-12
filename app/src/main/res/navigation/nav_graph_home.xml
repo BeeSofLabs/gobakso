@@ -24,7 +24,7 @@
 
     <fragment
             android:id="@+id/orderMapFragment"
-            android:name="app.gobakso.com.ui.fragment.home.OrderMapFragment"
+            android:name="app.gobakso.com.ui.fragment.home.FoodOrderFragment"
             android:label="OrderMapFragment" />
 
 </navigation>

@@ -63,9 +63,12 @@ class HomeFragment : BaseFragment() {
             profileButton.setOnClickListener {
                 App.getNavigationComponent().homeNavigation().navigateToProfile(navController)
             }
-            orderButton.setOnClickListener {
-                App.getNavigationComponent().homeNavigation().navigateToOrderMap(navController)
+            foodOrderButton.setOnClickListener {
+                App.getNavigationComponent().homeNavigation().navigateToOrder(navController)
             }
+
+            callOrderButton.setOnClickListener {  }
+            rewardButton.setOnClickListener {  }
         }
     }
 

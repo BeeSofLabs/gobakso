@@ -19,9 +19,8 @@
 
         <activity
                 android:name=".ui.activity.MainActivity"
-                android:screenOrientation="fullSensor"
-                android:theme="@style/NoActionBarTheme"
-                android:clearTaskOnLaunch="true"/>
+                android:clearTaskOnLaunch="true"
+                android:screenOrientation="fullSensor" />
 
         <activity
                 android:name=".ui.activity.LoginActivity"
@@ -34,6 +33,18 @@
         <activity
                 android:name=".ui.activity.CommonActivity"
                 android:screenOrientation="fullSensor" />
+
+        <activity
+                android:name=".ui.activity.MapOrderActivity"
+                android:screenOrientation="fullSensor" />
+
+        <meta-data
+                android:name="com.google.android.gms.version"
+                android:value="@integer/google_play_services_version" />
+        <meta-data
+                android:name="com.google.android.maps.v2.API_KEY"
+                android:value="@string/google_maps_api_key" />
+
     </application>
 
 </manifest>
