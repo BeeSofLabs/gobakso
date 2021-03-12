@@ -7,4 +7,8 @@
     <!--  Color Base  -->
     <color name="color_blue_0067B3">#0067B3</color>
     <color name="color_orange_facc64">#e1b75a</color>
+    <color name="color_black_transparent80">#CC000000</color>
+    <color name="color_black_transparent30">#33000000</color>
+    <color name="color_grey_959595">#959595</color>
+    <color name="color_grey_F2F2F2">#F2F2F2</color>
 </resources>
