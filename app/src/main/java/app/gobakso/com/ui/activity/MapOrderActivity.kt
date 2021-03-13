@@ -1,5 +1,8 @@
 package app.gobakso.com.ui.activity
 
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import app.beelabs.com.codebase.base.BaseActivity
 import app.gobakso.com.R
@@ -7,13 +10,15 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
-import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 
 
 class MapOrderActivity : BaseActivity(), OnMapReadyCallback {
+
+    private lateinit var builder: LatLngBounds.Builder
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,14 +28,26 @@ class MapOrderActivity : BaseActivity(), OnMapReadyCallback {
     }
 
     override fun onMapReady(googleMap: GoogleMap?) {
-        googleMap?.apply {
-            val australiaBounds = LatLngBounds(
-                LatLng((-44.0), 113.0),  // SW bounds
-                LatLng((-10.0), 154.0) // NE bounds
-            )
-            moveCamera(CameraUpdateFactory.newLatLngBounds(australiaBounds, 0))
-        }
+        builder = LatLngBounds.Builder()
+        drawMarker(LatLng(-6.249321, 106.7824544), "#1", googleMap)
+        drawMarker(LatLng(-6.2779666, 106.7805447), "#2", googleMap)
+        var bounds = builder.build()
+        googleMap?.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 0))
 
+    }
 
+    private fun drawMarker(point: LatLng, text: String, googleMap: GoogleMap?) {
+        val markerOptions = MarkerOptions()
+        markerOptions.position(point).title(text)
+            .icon(BitmapDescriptorFactory.fromBitmap(generateSmallIcon(this)))
+        googleMap?.addMarker(markerOptions)
+        builder.include(markerOptions.position)
+    }
+
+    fun generateSmallIcon(context: Context): Bitmap {
+        val height = 120
+        val width = 120
+        val bitmap = BitmapFactory.decodeResource(context.resources, R.drawable.bike)
+        return Bitmap.createScaledBitmap(bitmap, width, height, false)
     }
 }
