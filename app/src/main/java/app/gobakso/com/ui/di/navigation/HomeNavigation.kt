@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.navigation.NavController
 import app.gobakso.com.R
+import app.gobakso.com.ui.activity.CallDriveActivity
 import app.gobakso.com.ui.activity.MainActivity
 import app.gobakso.com.ui.activity.MapOrderActivity
 import app.gobakso.com.ui.di.impl.IHomeNavigation
@@ -26,6 +27,9 @@ class HomeNavigation : IHomeNavigation {
 
     override fun navigateToMapOrder(context: Context) {
         context.startActivity(Intent(context, MapOrderActivity::class.java))
-        (context as Activity).finish()
+    }
+
+    override fun navigateToCallDriver(context: Context) {
+        context.startActivity(Intent(context, CallDriveActivity::class.java))
     }
 }
