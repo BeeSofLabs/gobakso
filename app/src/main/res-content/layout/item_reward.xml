@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+    <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <ImageView
+                android:id="@+id/item_image"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@color/color_green" />
+
+        <TextView
+                android:id="@+id/item_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@color/color_white"
+                android:textAppearance="@style/FontSFProTextRegular"
+                android:layout_gravity="center"/>
+
+    </FrameLayout>
+
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:ellipsize="end"
+            android:maxLines="4"
+            android:text="testing jdslaj lj ldasjldajs ldkjsalkdj l lkjdalsjdlsaj dl djalsjdls a lsdaslkjdlkas  sjdlkasj dlksa ljd alskjdlksa jld laskjdlajsl alskj alkslkajs ldkja lkajsl dja djsljdl jsdlksjl jdsl lsjalsj sj dlka dasljdlasj "
+            tools:ignore="MissingConstraints" />
+
+</LinearLayout>

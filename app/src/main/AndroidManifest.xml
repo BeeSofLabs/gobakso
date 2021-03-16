@@ -49,6 +49,10 @@
                 android:name=".ui.activity.CallDriveActivity"
                 android:screenOrientation="fullSensor" />
 
+        <activity
+                android:name=".ui.activity.RewardActivity"
+                android:screenOrientation="fullSensor" />
+
 
 
         <meta-data

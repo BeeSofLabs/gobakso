@@ -14,4 +14,6 @@ interface IHomeNavigation : IBaseNavigation {
     fun navigateToMapOrder(context: Context)
 
     fun navigateToCallDriver(context: Context)
+
+    fun navigateToReward(context: Context)
 }

@@ -8,6 +8,7 @@ import app.gobakso.com.R
 import app.gobakso.com.ui.activity.CallDriveActivity
 import app.gobakso.com.ui.activity.MainActivity
 import app.gobakso.com.ui.activity.MapOrderActivity
+import app.gobakso.com.ui.activity.RewardActivity
 import app.gobakso.com.ui.di.impl.IHomeNavigation
 
 class HomeNavigation : IHomeNavigation {
@@ -31,5 +32,9 @@ class HomeNavigation : IHomeNavigation {
 
     override fun navigateToCallDriver(context: Context) {
         context.startActivity(Intent(context, CallDriveActivity::class.java))
+    }
+
+    override fun navigateToReward(context: Context) {
+        context.startActivity(Intent(context, RewardActivity::class.java))
     }
 }
