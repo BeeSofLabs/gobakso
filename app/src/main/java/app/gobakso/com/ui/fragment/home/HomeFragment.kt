@@ -70,7 +70,9 @@ class HomeFragment : BaseFragment() {
             callOrderButton.setOnClickListener {
                 App.getNavigationComponent().homeNavigation().navigateToCallDriver(requireContext())
             }
-            rewardButton.setOnClickListener { }
+            rewardButton.setOnClickListener {
+                App.getNavigationComponent().homeNavigation().navigateToReward(requireContext())
+            }
         }
     }
 
