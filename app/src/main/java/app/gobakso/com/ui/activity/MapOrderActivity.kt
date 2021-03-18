@@ -4,8 +4,14 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
+import androidx.annotation.NonNull
+import androidx.constraintlayout.widget.ConstraintLayout
 import app.beelabs.com.codebase.base.BaseActivity
 import app.gobakso.com.R
+import app.gobakso.com.databinding.ActivityLoginBinding
+import app.gobakso.com.databinding.ActivityMapOrderBinding
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -14,17 +20,26 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
+import kotlinx.android.synthetic.main.content_order_bottom_sheet_dialog.*
 
 
 class MapOrderActivity : BaseActivity(), OnMapReadyCallback {
 
     private lateinit var builder: LatLngBounds.Builder
+    private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
+    private lateinit var binding: ActivityMapOrderBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_map_order)
+        binding = ActivityMapOrderBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as? SupportMapFragment
         mapFragment?.getMapAsync(this)
+
+        openBottomSheetDialog()
     }
 
     override fun onMapReady(googleMap: GoogleMap?) {
@@ -49,5 +64,30 @@ class MapOrderActivity : BaseActivity(), OnMapReadyCallback {
         val width = 120
         val bitmap = BitmapFactory.decodeResource(context.resources, R.drawable.bike)
         return Bitmap.createScaledBitmap(bitmap, width, height, false)
+    }
+
+    fun openBottomSheetDialog(){
+        bottomSheetBehavior = BottomSheetBehavior.from(findViewById(R.id.bottom_sheet))
+
+        //#3 Listening to State Changes of BottomSheet
+        bottomSheetBehavior.setBottomSheetCallback(object :
+            BottomSheetBehavior.BottomSheetCallback() {
+            override fun onSlide(bottomSheet: View, slideOffset: Float) {
+            }
+
+            override fun onStateChanged(bottomSheet: View, newState: Int) {
+                var stateValue = when (newState) {
+                    BottomSheetBehavior.STATE_EXPANDED -> "Close Persistent Bottom Sheet"
+                    BottomSheetBehavior.STATE_COLLAPSED -> "Open Persistent Bottom Sheet"
+                    else -> "Persistent Bottom Sheet"
+                }
+
+                Toast.makeText(this@MapOrderActivity, stateValue, Toast.LENGTH_SHORT).show()
+            }
+        })
+
+        button_bottom_sheet.setOnClickListener {
+            bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+        }
     }
 }
