@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.annotation.NonNull
 import androidx.constraintlayout.widget.ConstraintLayout
 import app.beelabs.com.codebase.base.BaseActivity
+import app.beelabs.com.codebase.support.rx.RxTimer
 import app.gobakso.com.R
 import app.gobakso.com.databinding.ActivityLoginBinding
 import app.gobakso.com.databinding.ActivityMapOrderBinding
@@ -21,7 +22,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
+import com.google.android.material.bottomsheet.BottomSheetBehavior.*
 import kotlinx.android.synthetic.main.content_order_bottom_sheet_dialog.*
 
 
@@ -67,22 +68,25 @@ class MapOrderActivity : BaseActivity(), OnMapReadyCallback {
     }
 
     fun openBottomSheetDialog(){
-        bottomSheetBehavior = BottomSheetBehavior.from(findViewById(R.id.bottom_sheet))
+        bottomSheetBehavior = from(findViewById(R.id.bottom_sheet))
+
+        RxTimer.doTimer(3000, false, object: RxTimer(){
+            override fun onCallback(along: Long?) {
+                bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+            }
+        })
 
         //#3 Listening to State Changes of BottomSheet
         bottomSheetBehavior.setBottomSheetCallback(object :
             BottomSheetBehavior.BottomSheetCallback() {
             override fun onSlide(bottomSheet: View, slideOffset: Float) {
+
             }
 
-            override fun onStateChanged(bottomSheet: View, newState: Int) {
-                var stateValue = when (newState) {
-                    BottomSheetBehavior.STATE_EXPANDED -> "Close Persistent Bottom Sheet"
-                    BottomSheetBehavior.STATE_COLLAPSED -> "Open Persistent Bottom Sheet"
-                    else -> "Persistent Bottom Sheet"
+            override fun onStateChanged(p0: View, state: Int) {
+                when(state){
+                    STATE_COLLAPSED -> bottomSheetBehavior.state = STATE_COLLAPSED
                 }
-
-                Toast.makeText(this@MapOrderActivity, stateValue, Toast.LENGTH_SHORT).show()
             }
         })
 

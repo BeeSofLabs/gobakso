@@ -11,4 +11,10 @@
     <color name="color_black_transparent30">#33000000</color>
     <color name="color_grey_959595">#959595</color>
     <color name="color_grey_F2F2F2">#F2F2F2</color>
+    <color name="color_grey_bebebe">#bebebe</color>
+    <color name="color_grey_6D7278">#6D7278</color>
+    <color name="color_black_1f1f1f">#1f1f1f</color>
+
+    <color name="color_green_21A453">#21A453</color>
+
 </resources>
