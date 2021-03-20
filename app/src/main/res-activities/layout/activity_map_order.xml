@@ -4,6 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:background="#efefef"
         tools:context=".ui.activity.MapOrderActivity">
 
@@ -12,27 +13,6 @@
             android:layout_height="match_parent"
             android:background="@color/color_white"
             android:orientation="vertical">
-
-        <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/search_box"
-                    android:drawableLeft="@drawable/ic_search"
-                    android:drawableRight="@drawable/crossline"
-                    android:drawablePadding="12dp"
-                    android:hint="Search"
-                    android:imeOptions="actionSearch"
-                    android:maxLines="1"
-                    android:paddingHorizontal="12dp"
-                    android:text="Burger"
-                    android:textSize="14sp" />
-
-        </RelativeLayout>
 
         <FrameLayout
                 android:layout_width="match_parent"

@@ -17,10 +17,17 @@
         <action
                 android:id="@+id/action_commonEntryFragment_to_commonPinEntryFragment"
                 app:destination="@id/commonPinEntryFragment" />
+        <action
+                android:id="@+id/action_commonEntryFragment_to_commonSearchAddressFragment"
+                app:destination="@id/commonSearchAddressFragment" />
     </fragment>
 
     <fragment
             android:id="@+id/commonPinEntryFragment"
             android:name="app.gobakso.com.ui.fragment.common.CommonPinEntryFragment"
             android:label="CommonPinEntryFragment" />
+    <fragment
+            android:id="@+id/commonSearchAddressFragment"
+            android:name="app.gobakso.com.ui.fragment.common.CommonSearchAddressFragment"
+            android:label="CommonSearchAddressFragment" />
 </navigation>

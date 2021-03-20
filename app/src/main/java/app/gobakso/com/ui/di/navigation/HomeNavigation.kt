@@ -5,10 +5,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.navigation.NavController
 import app.gobakso.com.R
-import app.gobakso.com.ui.activity.CallDriveActivity
-import app.gobakso.com.ui.activity.MainActivity
-import app.gobakso.com.ui.activity.MapOrderActivity
-import app.gobakso.com.ui.activity.RewardActivity
+import app.gobakso.com.ui.activity.*
 import app.gobakso.com.ui.di.impl.IHomeNavigation
 
 class HomeNavigation : IHomeNavigation {
@@ -16,6 +13,10 @@ class HomeNavigation : IHomeNavigation {
     override fun navigateToHome(context: Context) {
         context.startActivity(Intent(context, MainActivity::class.java))
         (context as Activity).finish()
+    }
+
+    override fun navigateToSearchAddress(context: Context) {
+        context.startActivity(Intent(context, CommonActivity::class.java))
     }
 
     override fun navigateToProfile(navController: NavController) {

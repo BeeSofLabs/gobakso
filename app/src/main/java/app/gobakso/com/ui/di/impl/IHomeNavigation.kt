@@ -7,6 +7,8 @@ interface IHomeNavigation : IBaseNavigation {
 
     fun navigateToHome(context: Context)
 
+    fun navigateToSearchAddress(context: Context)
+
     fun navigateToProfile(navController: NavController)
 
     fun navigateToOrder(navController: NavController)

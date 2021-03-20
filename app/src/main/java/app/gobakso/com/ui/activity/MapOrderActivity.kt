@@ -10,6 +10,7 @@ import androidx.annotation.NonNull
 import androidx.constraintlayout.widget.ConstraintLayout
 import app.beelabs.com.codebase.base.BaseActivity
 import app.beelabs.com.codebase.support.rx.RxTimer
+import app.gobakso.com.App
 import app.gobakso.com.R
 import app.gobakso.com.databinding.ActivityLoginBinding
 import app.gobakso.com.databinding.ActivityMapOrderBinding
@@ -90,8 +91,14 @@ class MapOrderActivity : BaseActivity(), OnMapReadyCallback {
             }
         })
 
-        button_bottom_sheet.setOnClickListener {
-            bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+        action_order_address.setOnClickListener {
+            App.getNavigationComponent().homeNavigation()
+                .navigateToSearchAddress(this@MapOrderActivity)
+        }
+
+        action_order_detail.setOnClickListener {
+            App.getNavigationComponent().homeNavigation()
+                .navigateToSearchAddress(this@MapOrderActivity)
         }
     }
 }

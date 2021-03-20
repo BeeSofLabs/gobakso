@@ -20,10 +20,15 @@ class CommonEntryFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
 
-        goToPinEntry()
+//        goToPinEntry()
+        goToSearchAddress()
     }
 
     private fun goToPinEntry() {
         navController.navigate(R.id.action_commonEntryFragment_to_commonPinEntryFragment)
+    }
+
+    private fun goToSearchAddress() {
+        navController.navigate(R.id.action_commonEntryFragment_to_commonSearchAddressFragment)
     }
 }
