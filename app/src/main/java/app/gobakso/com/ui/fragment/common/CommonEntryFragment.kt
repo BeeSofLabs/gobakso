@@ -7,19 +7,29 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import app.beelabs.com.codebase.base.BaseActivity
 import app.beelabs.com.codebase.base.BaseFragment
 import app.gobakso.com.R
 import app.gobakso.com.databinding.FragmentCommonEntryBinding
 
 class CommonEntryFragment : BaseFragment() {
     lateinit var navController: NavController
+    private lateinit var binding: FragmentCommonEntryBinding
+
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentCommonEntryBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
 
+        Toast.makeText(activity, "Search", Toast.LENGTH_SHORT).show()
 //        goToPinEntry()
         goToSearchAddress()
     }
