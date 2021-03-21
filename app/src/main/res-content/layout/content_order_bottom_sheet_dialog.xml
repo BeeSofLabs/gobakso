@@ -123,11 +123,11 @@
                 android:textSize="12sp" />
 
         <ImageView
-                android:id="@+id/action_order_address"
+                android:id="@+id/button_order_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="22dp"
+                android:padding="22dp"
                 android:layout_centerVertical="true"
                 android:src="@drawable/right_arrow"/>
 
@@ -161,11 +161,11 @@
                 android:textSize="12sp" />
 
         <ImageView
-                android:id="@+id/action_order_detail"
+                android:id="@+id/button_order_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="22dp"
+                android:padding="22dp"
                 android:layout_centerVertical="true"
                 android:src="@drawable/right_arrow"/>
 

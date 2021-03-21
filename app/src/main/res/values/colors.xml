@@ -16,5 +16,7 @@
     <color name="color_black_1f1f1f">#1f1f1f</color>
 
     <color name="color_green_21A453">#21A453</color>
+    <color name="color_white">#fff</color>
+    <color name="color_red_F90000">#F90000</color>
 
 </resources>

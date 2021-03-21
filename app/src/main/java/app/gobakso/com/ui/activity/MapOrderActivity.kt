@@ -91,12 +91,12 @@ class MapOrderActivity : BaseActivity(), OnMapReadyCallback {
             }
         })
 
-        action_order_address.setOnClickListener {
+        button_order_address.setOnClickListener {
             App.getNavigationComponent().homeNavigation()
                 .navigateToSearchAddress(this@MapOrderActivity)
         }
 
-        action_order_detail.setOnClickListener {
+        button_order_detail.setOnClickListener {
             App.getNavigationComponent().homeNavigation()
                 .navigateToSearchAddress(this@MapOrderActivity)
         }

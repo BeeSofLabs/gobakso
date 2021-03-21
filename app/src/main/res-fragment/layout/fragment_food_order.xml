@@ -32,10 +32,10 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
                     android:layout_marginVertical="20dp"
                     android:layout_marginStart="20dp"
                     android:text="Bakso Komplit"
-                    android:layout_gravity="bottom"
                     android:textAppearance="@style/FontSFProDisplayBlack"
                     android:textColor="@color/color_white"
                     android:textSize="20sp" />
@@ -134,12 +134,147 @@
 
             <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/list_product"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="60dp"
-                    android:layout_marginHorizontal="16dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="20dp" />
+
+            <!--  Status Order  -->
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginBottom="56dp"
+                    android:background="@drawable/rectangle_border_grey"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:text="Payment"
+                        android:textAppearance="@style/FontSFProDisplayBlack"
+                        android:textSize="18sp" />
+
+                <!--  Price   -->
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="horizontal">
+
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Price"
+                            android:textSize="14sp" />
+
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawablePadding="12dp"
+                            android:text="Rp 12.000"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/color_grey_6D7278"
+                            android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <!--  Shipping   -->
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:orientation="horizontal">
+
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Shipping"
+                            android:textSize="14sp" />
+
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawablePadding="12dp"
+                            android:text="Rp 12.000"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/color_grey_6D7278"
+                            android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <!--  Promo   -->
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:orientation="horizontal">
+
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Promo"
+                            android:textSize="14sp" />
+
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawablePadding="12dp"
+                            android:text="Rp 5.000"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/color_grey_6D7278"
+                            android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="18dp"
+                        android:background="@color/color_grey_bebebe" />
+
+
+                <!--  Cash   -->
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:orientation="horizontal">
+
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Cash"
+                            android:drawablePadding="10dp"
+                            android:drawableLeft="@drawable/ic_money"
+                            android:textColor="@color/color_red_F90000"
+                            android:textSize="14sp" />
+
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawablePadding="12dp"
+                            android:text="Rp 5.000"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/color_red_F90000"
+                            android:textSize="14sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
         </LinearLayout>
+
 
     </ScrollView>
 
@@ -150,7 +285,7 @@
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
             android:background="@color/color_blue_0067B3"
-            android:text="Continue"
+            android:text="Book Now"
             android:textAllCaps="false"
             android:textColor="@color/color_white"
             tools:ignore="MissingConstraints" />

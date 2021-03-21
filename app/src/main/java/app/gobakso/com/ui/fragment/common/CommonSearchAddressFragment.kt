@@ -23,23 +23,22 @@ class CommonSearchAddressFragment : BaseFragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) =
         with(binding) {
-            inputSearch.setOnTouchListener(object : View.OnTouchListener {
-                @SuppressLint("ClickableViewAccessibility")
+            searchInput.setOnTouchListener(object : View.OnTouchListener {
                 override fun onTouch(v: View?, event: MotionEvent?): Boolean {
                     val DRAWABLE_RIGHT: Int = 2;
 
                     if (event?.action == MotionEvent.ACTION_UP) {
-                        if (event?.rawX >= (inputSearch.right - inputSearch.compoundDrawables[DRAWABLE_RIGHT].bounds.width() - IConfig.SEARCH_BOUNDS_RIGHT_OFFSET)) {
+                        if (event?.rawX >= (searchInput.right - searchInput.compoundDrawables[DRAWABLE_RIGHT].bounds.width() - IConfig.SEARCH_BOUNDS_RIGHT_OFFSET)) {
 
-                            inputSearch.setText("")
+                            searchInput.setText("")
                             return true
                         }
                     }
                     return false
                 }
             })
+
         }
-    }
 }
