@@ -6,14 +6,14 @@ import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.annotation.NonNull
 import androidx.constraintlayout.widget.ConstraintLayout
 import app.beelabs.com.codebase.base.BaseActivity
 import app.beelabs.com.codebase.support.rx.RxTimer
 import app.gobakso.com.App
 import app.gobakso.com.R
-import app.gobakso.com.databinding.ActivityLoginBinding
 import app.gobakso.com.databinding.ActivityMapOrderBinding
+
+import app.gobakso.com.ui.component.dialog.ReviewDriverDialog
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -23,7 +23,8 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetBehavior.*
+import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_COLLAPSED
+import com.google.android.material.bottomsheet.BottomSheetBehavior.from
 import kotlinx.android.synthetic.main.content_order_bottom_sheet_dialog.*
 
 
@@ -68,12 +69,21 @@ class MapOrderActivity : BaseActivity(), OnMapReadyCallback {
         return Bitmap.createScaledBitmap(bitmap, width, height, false)
     }
 
-    fun openBottomSheetDialog(){
+    fun showRatingDialog() {
+        RxTimer.doTimer(5000, false, object : RxTimer() {
+            override fun onCallback(along: Long?) {
+                ReviewDriverDialog(this@MapOrderActivity, R.style.CoconutDialogScreen).show()
+            }
+        })
+    }
+
+    fun openBottomSheetDialog() {
         bottomSheetBehavior = from(findViewById(R.id.bottom_sheet))
 
-        RxTimer.doTimer(3000, false, object: RxTimer(){
+        RxTimer.doTimer(3000, false, object : RxTimer() {
             override fun onCallback(along: Long?) {
-                bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+                bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+                showRatingDialog()
             }
         })
 
@@ -85,7 +95,7 @@ class MapOrderActivity : BaseActivity(), OnMapReadyCallback {
             }
 
             override fun onStateChanged(p0: View, state: Int) {
-                when(state){
+                when (state) {
                     STATE_COLLAPSED -> bottomSheetBehavior.state = STATE_COLLAPSED
                 }
             }
@@ -100,5 +110,16 @@ class MapOrderActivity : BaseActivity(), OnMapReadyCallback {
             App.getNavigationComponent().homeNavigation()
                 .navigateToSearchAddress(this@MapOrderActivity)
         }
+    }
+
+    fun afterRatingCallback() {
+        Toast.makeText(this, "Map Order", Toast.LENGTH_SHORT).show()
+        binding.progressbarMapOrder.visibility = View.VISIBLE
+        RxTimer.doTimer(5000, false, object : RxTimer() {
+            override fun onCallback(along: Long?) {
+                App.getNavigationComponent().homeNavigation()
+                    .navigateToHome(this@MapOrderActivity)
+            }
+        })
     }
 }
