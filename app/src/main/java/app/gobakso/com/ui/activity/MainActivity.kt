@@ -1,18 +1,29 @@
 package app.gobakso.com.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import app.beelabs.com.codebase.base.BaseActivity
 import app.gobakso.com.App
+import app.gobakso.com.BuildConfig
+import app.gobakso.com.IConfig.Companion.DRIVER_MODULE_CLASSNAME
+import app.gobakso.com.R
 import app.gobakso.com.databinding.ActivityMainBinding
 import app.gobakso.com.ui.fragment.home.HomeFragment
+import com.google.android.play.core.splitinstall.SplitInstallManager
+import com.google.android.play.core.splitinstall.SplitInstallManagerFactory
+import com.google.android.play.core.splitinstall.SplitInstallRequest
 
 class MainActivity : BaseActivity() {
-
+    private val moduleDriver by lazy { getString(R.string.driver_feature_module) }
+    private lateinit var manager: SplitInstallManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        loadDriverModule()
     }
 
     override fun onBackPressed() {
@@ -63,35 +74,36 @@ class MainActivity : BaseActivity() {
 //
 //    }
 
-//    private fun loadInsuranceModule() {
-//        val request = SplitInstallRequest.newBuilder()
-//            .addModule(moduleInsurance)
-//            .build()
-//
-//        // Load and install the requested feature module.
-//        manager.startInstall(request)
-//
-//        if (manager.installedModules.contains(moduleInsurance)) {
-//            onSuccessfulLoad(launch = true)
-//            return
-//        }
-//    }
-//
-//    private fun onSuccessfulLoad(launch: Boolean) {
-//        if (launch) {
-//            launchActivity(MODULE_INSURANCE_CLASSNAME)
-//        }
-//    }
-//
-//    private fun launchActivity(className: String) {
-//        intent = Intent()
-//        intent.setClassName(BuildConfig.APPLICATION_ID, className)
-//            .also {
-//                it.putExtra("data", 5000)
-//                startActivity(it)
-//            }
-//    }
-//
+    private fun loadDriverModule() {
+        manager = SplitInstallManagerFactory.create(this)
+        val request = SplitInstallRequest.newBuilder()
+            .addModule(moduleDriver)
+            .build()
+
+        // Load and install the requested feature module.
+        manager.startInstall(request)
+
+        if (manager.installedModules.contains(moduleDriver)) {
+            onSuccessfulLoad(launch = true)
+            return
+        }
+    }
+
+    private fun onSuccessfulLoad(launch: Boolean) {
+        if (launch) {
+            launchActivity(DRIVER_MODULE_CLASSNAME)
+        }
+    }
+
+    private fun launchActivity(className: String) {
+        intent = Intent()
+        intent.setClassName(BuildConfig.APPLICATION_ID, className)
+            .also {
+                it.putExtra("data", 5000)
+                startActivity(it)
+            }
+    }
+
 //    // trigger reactive programming
 //    @SuppressLint("CheckResult")
 //        private fun doReactiveAction() {
